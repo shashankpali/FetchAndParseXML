@@ -19,8 +19,9 @@ class InputController: UIViewController, UITextFieldDelegate {
         view.backgroundColor = .white
         setupUI()
         self.title = "XML Fetcher"
+        hideKeyboardWhenTappedAround()
     }
-    
+        
     //MARK: - UI Setup
     
     func setupUI() {
@@ -78,6 +79,7 @@ class InputController: UIViewController, UITextFieldDelegate {
             let destinationController = LoadXMLController.init(style: .plain)
             destinationController.tableData = objs
             self.navigationController?.pushViewController(destinationController, animated: true)
+            self.searchField.text = ""
         }
         
         
@@ -96,7 +98,9 @@ class InputController: UIViewController, UITextFieldDelegate {
     @objc func tappedFetch() {
         guard searchField.text?.count != 0 else {
             searchField.becomeFirstResponder()
-            searchField.placeholder = "url is required...."
+            let alert = UIAlertController.init(title: "Oops..!", message: "URL is required", preferredStyle: .alert)
+            alert.addAction(UIAlertAction.init(title: "Ok", style: .default, handler: nil))
+            self.navigationController?.present(alert, animated: true, completion: nil)
             return
         }
         fetchBtn.isEnabled = false
@@ -114,6 +118,16 @@ class InputController: UIViewController, UITextFieldDelegate {
                 self.updateUI(navigateWith: nil, errorString: errorStr)
             }
         }
+    }
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     //
 }
