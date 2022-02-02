@@ -68,7 +68,9 @@ class InputController: UIViewController, UITextFieldDelegate {
             self.searchField.textColor = .black
             self.searchField.isUserInteractionEnabled = true
             guard objs != nil else {return}
-            self.navigationController?.pushViewController(LoadXMLController.init(style: .plain), animated: true)
+            let destinationController = LoadXMLController.init(style: .plain)
+            destinationController.tableData = objs
+            self.navigationController?.pushViewController(destinationController, animated: true)
         }
     }
     
