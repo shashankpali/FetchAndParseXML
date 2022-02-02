@@ -11,16 +11,22 @@ class InputController: UIViewController, UITextFieldDelegate {
     
     let searchField: UITextField = UITextField.init()
     let fetchBtn: UIButton = UIButton.init(type: .roundedRect)
-
+    let loader = UIActivityIndicatorView.init(style: .large)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         view.backgroundColor = .white
-        setupSearchInput()
-        setupFetchBtn()
+        setupUI()
     }
     
     //MARK: - UI Setup
+    
+    func setupUI() {
+        setupSearchInput()
+        setupFetchBtn()
+        setupLoader()
+    }
     
     func setupSearchInput() {
         searchField.placeholder = "Type or paste URL"
@@ -29,20 +35,41 @@ class InputController: UIViewController, UITextFieldDelegate {
         
         view.addSubview(searchField)
         searchField.translatesAutoresizingMaskIntoConstraints = false
-        ConstraintHelper.set(view: searchField, widthRatio: 0.8, respectToView: view)
-        ConstraintHelper.make(view: searchField, center: .horizontally, toView: view)
-        ConstraintHelper.make(view: searchField, center: .vertically, toView: view)
+        searchField.set(widthRatio: 0.8, respectToView: view)
+        searchField.make(center: .horizontally, toView: view)
+        searchField.make(center: .vertically, toView: view)
     }
     
     func setupFetchBtn() {
         fetchBtn.setTitle("Fetch", for: .normal)
         fetchBtn.addTarget(self, action: #selector(tappedFetch), for: .touchUpInside)
-
+        
         view.addSubview(fetchBtn)
         fetchBtn.translatesAutoresizingMaskIntoConstraints = false
-        ConstraintHelper.place(view: fetchBtn, belowView: searchField, distance: 10)
-        ConstraintHelper.set(view: fetchBtn, widthRatio: 0.5, respectToView: searchField)
-        ConstraintHelper.make(view: fetchBtn, center: .horizontally, toView: view)
+        fetchBtn.place(belowView: searchField, distance: 10)
+        fetchBtn.set(widthRatio: 0.5, respectToView: searchField)
+        fetchBtn.make(center: .horizontally, toView: view)
+    }
+    
+    func setupLoader() {
+        loader.hidesWhenStopped = true
+        view.addSubview(loader)
+        loader.translatesAutoresizingMaskIntoConstraints = false
+        loader.make(center: .horizontally, toView: view)
+        loader.place(aboveView: searchField, distance: 10)
+    }
+    
+    //MARK: - Updat UI
+    
+    func updateUI(navigateWith objs: [Station]?) {
+        DispatchQueue.main.async {
+            self.loader.stopAnimating()
+            self.fetchBtn.isEnabled = true
+            self.searchField.textColor = .black
+            self.searchField.isUserInteractionEnabled = true
+            guard objs != nil else {return}
+            self.navigationController?.pushViewController(LoadXMLController.init(style: .plain), animated: true)
+        }
     }
     
     //MARK: - Text Field Delegate
@@ -55,13 +82,25 @@ class InputController: UIViewController, UITextFieldDelegate {
     //MARK: - User Action
     
     @objc func tappedFetch() {
-        guard searchField.text?.count != 0 else {
+        guard let text = searchField.text else {
             searchField.becomeFirstResponder()
             return
         }
+        fetchBtn.isEnabled = false
+        searchField.textColor = .lightGray
+        searchField.isUserInteractionEnabled = false
         
-        navigationController?.pushViewController(LoadXMLController.init(style: .plain), animated: true)
+        loader.startAnimating()
+        
+        Networking.get(forURLString: text) { success, data, errorStr in
+            if success {
+                let _ =  XMLParserHelper.init(withData: data!) { array in
+                    self.updateUI(navigateWith: array)
+                }
+            }else {
+                self.updateUI(navigateWith: nil)
+            }
+        }
     }
-    
+    //
 }
-
