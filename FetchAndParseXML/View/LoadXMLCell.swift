@@ -20,5 +20,10 @@ class LoadXMLCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    func setup(for model: Station) {
+        textLabel?.text = model.name
+        imageView?.imageFromServerURL(urlString: model.logoURL, PlaceHolderImage: UIImage.init(named: "Placeholder")!)
+    }
 
 }

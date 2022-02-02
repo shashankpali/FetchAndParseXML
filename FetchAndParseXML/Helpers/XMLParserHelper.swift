@@ -53,7 +53,7 @@ class XMLParserHelper: NSObject, XMLParserDelegate {
                 identifier += data
             } else if self.elementName == "StationName" {
                 name += data
-            } else if self.elementName == "StationUrl" {
+            } else if self.elementName == "Logo" {
                 logoURL += data
             }
         }
