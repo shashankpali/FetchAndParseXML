@@ -16,7 +16,7 @@ struct Networking {
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let res = data else {
-                callback(false, nil, String(describing: error))
+                callback(false, nil, error?.localizedDescription)
                 return
             }
             callback(true, res, nil)

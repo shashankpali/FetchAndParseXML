@@ -24,21 +24,9 @@ class InputController: UIViewController, UITextFieldDelegate {
     //MARK: - UI Setup
     
     func setupUI() {
-        setupSearchInput()
         setupFetchBtn()
+        setupSearchInput()
         setupLoader()
-    }
-    
-    func setupSearchInput() {
-        searchField.placeholder = "Type or paste URL"
-        searchField.borderStyle = .roundedRect
-        searchField.delegate = self
-        
-        view.addSubview(searchField)
-        searchField.translatesAutoresizingMaskIntoConstraints = false
-        searchField.set(widthRatio: 0.8, respectToView: view)
-        searchField.make(center: .horizontally, toView: view)
-        searchField.make(center: .vertically, toView: view)
     }
     
     func setupFetchBtn() {
@@ -47,9 +35,22 @@ class InputController: UIViewController, UITextFieldDelegate {
         
         view.addSubview(fetchBtn)
         fetchBtn.translatesAutoresizingMaskIntoConstraints = false
-        fetchBtn.place(belowView: searchField, distance: 10)
-        fetchBtn.set(widthRatio: 0.5, respectToView: searchField)
+        fetchBtn.set(widthRatio: 0.5, respectToView: view)
         fetchBtn.make(center: .horizontally, toView: view)
+        fetchBtn.make(center: .vertically, toView: view)
+    }
+    
+    func setupSearchInput() {
+        searchField.placeholder = "Type or paste URL"
+        searchField.borderStyle = .roundedRect
+        searchField.returnKeyType = .go
+        searchField.delegate = self
+        
+        view.addSubview(searchField)
+        searchField.translatesAutoresizingMaskIntoConstraints = false
+        searchField.set(widthRatio: 0.8, respectToView: view)
+        searchField.make(center: .horizontally, toView: view)
+        searchField.place(aboveView: fetchBtn, distance: 10)
     }
     
     func setupLoader() {
@@ -62,31 +63,40 @@ class InputController: UIViewController, UITextFieldDelegate {
     
     //MARK: - Updat UI
     
-    func updateUI(navigateWith objs: [Station]?) {
+    func updateUI(navigateWith objs: [Station]?, errorString: String?) {
         DispatchQueue.main.async {
             self.loader.stopAnimating()
             self.fetchBtn.isEnabled = true
             self.searchField.textColor = .black
             self.searchField.isUserInteractionEnabled = true
-            guard objs != nil else {return}
+            guard objs != nil else {
+                let alert = UIAlertController.init(title: "Error", message: errorString!, preferredStyle: .alert)
+                alert.addAction(UIAlertAction.init(title: "Ok", style: .default, handler: nil))
+                self.navigationController?.present(alert, animated: true, completion: nil)
+                return
+            }
             let destinationController = LoadXMLController.init(style: .plain)
             destinationController.tableData = objs
             self.navigationController?.pushViewController(destinationController, animated: true)
         }
+        
+        
     }
     
     //MARK: - Text Field Delegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
+        tappedFetch()
         return true
     }
     
     //MARK: - User Action
     
     @objc func tappedFetch() {
-        guard let text = searchField.text else {
+        guard searchField.text?.count != 0 else {
             searchField.becomeFirstResponder()
+            searchField.placeholder = "url is required...."
             return
         }
         fetchBtn.isEnabled = false
@@ -95,13 +105,13 @@ class InputController: UIViewController, UITextFieldDelegate {
         
         loader.startAnimating()
         
-        Networking.get(forURLString: text) { success, data, errorStr in
+        Networking.get(forURLString: searchField.text!) { success, data, errorStr in
             if success {
                 let _ =  XMLParserHelper.init(withData: data!) { array in
-                    self.updateUI(navigateWith: array)
+                    self.updateUI(navigateWith: array, errorString: nil)
                 }
             }else {
-                self.updateUI(navigateWith: nil)
+                self.updateUI(navigateWith: nil, errorString: errorStr)
             }
         }
     }
