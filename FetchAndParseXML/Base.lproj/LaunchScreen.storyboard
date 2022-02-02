@@ -16,18 +16,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shahsank Pali" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wKd-0w-ttG">
-                                <rect key="frame" x="20" y="818" width="116.5" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by, Shahsank Pali" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wKd-0w-ttG">
+                                <rect key="frame" x="20" y="816.5" width="133.5" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
                                 <color key="textColor" red="0.14117647059999999" green="0.1250908375" blue="0.14510044459999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fetch And Parse XML" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iru-7A-y3P">
+                                <rect key="frame" x="20" y="775" width="259" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" red="0.14117647059999999" green="0.1250908375" blue="0.14510044459999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Cvg-6l-52f">
+                                <rect key="frame" x="20" y="711" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="3sk-Az-BLM"/>
+                                    <constraint firstAttribute="width" secondItem="Cvg-6l-52f" secondAttribute="height" multiplier="1:1" id="Qnf-YK-9q3"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Iru-7A-y3P" firstAttribute="top" secondItem="Cvg-6l-52f" secondAttribute="bottom" constant="4" id="3UV-jq-usz"/>
                             <constraint firstItem="wKd-0w-ttG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="RFm-Ln-bdz"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wKd-0w-ttG" secondAttribute="bottom" constant="20" id="fs5-kX-bSq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Iru-7A-y3P" secondAttribute="trailing" symbolic="YES" id="Rpv-TN-1Jd"/>
+                            <constraint firstItem="Cvg-6l-52f" firstAttribute="leading" secondItem="Iru-7A-y3P" secondAttribute="leading" id="YFs-Gg-MGu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wKd-0w-ttG" secondAttribute="bottom" constant="24" id="fs5-kX-bSq"/>
+                            <constraint firstItem="wKd-0w-ttG" firstAttribute="top" secondItem="Iru-7A-y3P" secondAttribute="bottom" constant="8" symbolic="YES" id="g0p-J7-RX2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wKd-0w-ttG" secondAttribute="trailing" symbolic="YES" id="j6R-GH-xeb"/>
+                            <constraint firstItem="Iru-7A-y3P" firstAttribute="leading" secondItem="wKd-0w-ttG" secondAttribute="leading" id="xj0-v0-fLv"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -37,6 +56,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Icon" width="128" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
