@@ -18,6 +18,7 @@ class InputController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         view.backgroundColor = .white
         setupUI()
+        self.title = "XML Fetcher"
     }
     
     //MARK: - UI Setup
