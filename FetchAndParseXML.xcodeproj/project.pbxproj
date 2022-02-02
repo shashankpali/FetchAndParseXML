@@ -16,6 +16,8 @@
 		BF5C754F27AAB14D00882E7B /* LoadXMLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5C754E27AAB14D00882E7B /* LoadXMLCell.swift */; };
 		BF5C755227AABAB400882E7B /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5C755127AABAB400882E7B /* Networking.swift */; };
 		BF5C755427AAC3DA00882E7B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5C755327AAC3DA00882E7B /* UIView+Extension.swift */; };
+		BF9FD5D927AAE1E7006AFDA8 /* StationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9FD5D827AAE1E7006AFDA8 /* StationModel.swift */; };
+		BF9FD5DB27AAEC4D006AFDA8 /* XMLParserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9FD5DA27AAEC4D006AFDA8 /* XMLParserHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		BF5C754E27AAB14D00882E7B /* LoadXMLCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadXMLCell.swift; sourceTree = "<group>"; };
 		BF5C755127AABAB400882E7B /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		BF5C755327AAC3DA00882E7B /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		BF9FD5D827AAE1E7006AFDA8 /* StationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationModel.swift; sourceTree = "<group>"; };
+		BF9FD5DA27AAEC4D006AFDA8 /* XMLParserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLParserHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 				BF5C753E27AA830B00882E7B /* LaunchScreen.storyboard */,
 				BF5C754127AA830B00882E7B /* Info.plist */,
 				BF5C755027AAB15700882E7B /* View */,
+				BF9FD5DC27AAF5D6006AFDA8 /* Model */,
 			);
 			path = FetchAndParseXML;
 			sourceTree = "<group>";
@@ -96,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				BF5C755127AABAB400882E7B /* Networking.swift */,
+				BF9FD5DA27AAEC4D006AFDA8 /* XMLParserHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -114,6 +120,14 @@
 				BF5C755327AAC3DA00882E7B /* UIView+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BF9FD5DC27AAF5D6006AFDA8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF9FD5D827AAE1E7006AFDA8 /* StationModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,10 +200,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF9FD5D927AAE1E7006AFDA8 /* StationModel.swift in Sources */,
 				BF5C754F27AAB14D00882E7B /* LoadXMLCell.swift in Sources */,
 				BF5C755427AAC3DA00882E7B /* UIView+Extension.swift in Sources */,
 				BF5C753827AA830A00882E7B /* InputController.swift in Sources */,
 				BF5C753427AA830A00882E7B /* AppDelegate.swift in Sources */,
+				BF9FD5DB27AAEC4D006AFDA8 /* XMLParserHelper.swift in Sources */,
 				BF5C753627AA830A00882E7B /* SceneDelegate.swift in Sources */,
 				BF5C754827AA868400882E7B /* LoadXMLController.swift in Sources */,
 				BF5C755227AABAB400882E7B /* Networking.swift in Sources */,
