@@ -18,6 +18,7 @@
 		BF5C755427AAC3DA00882E7B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5C755327AAC3DA00882E7B /* UIView+Extension.swift */; };
 		BF9FD5D927AAE1E7006AFDA8 /* StationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9FD5D827AAE1E7006AFDA8 /* StationModel.swift */; };
 		BF9FD5DB27AAEC4D006AFDA8 /* XMLParserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9FD5DA27AAEC4D006AFDA8 /* XMLParserHelper.swift */; };
+		BF9FD5DE27AAF7FB006AFDA8 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9FD5DD27AAF7FB006AFDA8 /* UIImageView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		BF5C755327AAC3DA00882E7B /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		BF9FD5D827AAE1E7006AFDA8 /* StationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationModel.swift; sourceTree = "<group>"; };
 		BF9FD5DA27AAEC4D006AFDA8 /* XMLParserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLParserHelper.swift; sourceTree = "<group>"; };
+		BF9FD5DD27AAF7FB006AFDA8 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,15 +68,15 @@
 		BF5C753227AA830A00882E7B /* FetchAndParseXML */ = {
 			isa = PBXGroup;
 			children = (
-				BF5C755527AAC50C00882E7B /* Extensions */,
-				BF5C754C27AAAFE800882E7B /* Project Delegates */,
 				BF5C754B27AAAFD800882E7B /* Controller */,
+				BF5C755527AAC50C00882E7B /* Extensions */,
 				BF5C754D27AAAFF900882E7B /* Helpers */,
-				BF5C753C27AA830B00882E7B /* Assets.xcassets */,
+				BF9FD5DC27AAF5D6006AFDA8 /* Model */,
+				BF5C754C27AAAFE800882E7B /* Project Delegates */,
+				BF9FD5DF27AAFFBA006AFDA8 /* Resource */,
+				BF5C755027AAB15700882E7B /* View */,
 				BF5C753E27AA830B00882E7B /* LaunchScreen.storyboard */,
 				BF5C754127AA830B00882E7B /* Info.plist */,
-				BF5C755027AAB15700882E7B /* View */,
-				BF9FD5DC27AAF5D6006AFDA8 /* Model */,
 			);
 			path = FetchAndParseXML;
 			sourceTree = "<group>";
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				BF5C755327AAC3DA00882E7B /* UIView+Extension.swift */,
+				BF9FD5DD27AAF7FB006AFDA8 /* UIImageView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -128,6 +131,14 @@
 				BF9FD5D827AAE1E7006AFDA8 /* StationModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BF9FD5DF27AAFFBA006AFDA8 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				BF5C753C27AA830B00882E7B /* Assets.xcassets */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF9FD5DE27AAF7FB006AFDA8 /* UIImageView+Extension.swift in Sources */,
 				BF9FD5D927AAE1E7006AFDA8 /* StationModel.swift in Sources */,
 				BF5C754F27AAB14D00882E7B /* LoadXMLCell.swift in Sources */,
 				BF5C755427AAC3DA00882E7B /* UIView+Extension.swift in Sources */,

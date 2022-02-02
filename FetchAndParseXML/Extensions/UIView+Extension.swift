@@ -8,6 +8,7 @@
 import UIKit
 
 extension UIView {
+    
     enum Center {
     case horizontally
     case vertically
