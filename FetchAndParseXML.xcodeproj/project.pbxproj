@@ -14,6 +14,7 @@
 		BF5C754027AA830B00882E7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF5C753E27AA830B00882E7B /* LaunchScreen.storyboard */; };
 		BF5C754827AA868400882E7B /* LoadXMLController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5C754727AA868400882E7B /* LoadXMLController.swift */; };
 		BF5C754A27AA994900882E7B /* ConstraintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5C754927AA994900882E7B /* ConstraintHelper.swift */; };
+		BF5C754F27AAB14D00882E7B /* LoadXMLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5C754E27AAB14D00882E7B /* LoadXMLCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		BF5C754127AA830B00882E7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF5C754727AA868400882E7B /* LoadXMLController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadXMLController.swift; sourceTree = "<group>"; };
 		BF5C754927AA994900882E7B /* ConstraintHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintHelper.swift; sourceTree = "<group>"; };
+		BF5C754E27AAB14D00882E7B /* LoadXMLCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadXMLCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				BF5C753C27AA830B00882E7B /* Assets.xcassets */,
 				BF5C753E27AA830B00882E7B /* LaunchScreen.storyboard */,
 				BF5C754127AA830B00882E7B /* Info.plist */,
+				BF5C755027AAB15700882E7B /* View */,
 			);
 			path = FetchAndParseXML;
 			sourceTree = "<group>";
@@ -92,6 +95,14 @@
 				BF5C754927AA994900882E7B /* ConstraintHelper.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		BF5C755027AAB15700882E7B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BF5C754E27AAB14D00882E7B /* LoadXMLCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF5C754A27AA994900882E7B /* ConstraintHelper.swift in Sources */,
+				BF5C754F27AAB14D00882E7B /* LoadXMLCell.swift in Sources */,
 				BF5C753827AA830A00882E7B /* InputController.swift in Sources */,
 				BF5C753427AA830A00882E7B /* AppDelegate.swift in Sources */,
 				BF5C753627AA830A00882E7B /* SceneDelegate.swift in Sources */,
