@@ -13,4 +13,4 @@ This app has two screen
 => Image in the cell also fetch in backgroud with error handling and loader
 
 ## Screenshots
-![Screenshots](Screenshots/screen1.png) => ![Screenshots](Screenshots/screen2.png)
+![Screenshots](Screenshots/screen1.png =414x896) => ![Screenshots](Screenshots/screen2.png =414x896)
