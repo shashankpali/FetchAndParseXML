@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ParserHelper: NSObject, XMLParserDelegate {
+class ParserHelper: NSObject {
  
     var stations: [Station] = []
     var elementName = ""
@@ -25,6 +25,19 @@ class ParserHelper: NSObject, XMLParserDelegate {
         c(stations)
     }
     
+    
+}
+
+//MARK: - For JSON
+/*
+ extension ParserHelper {
+ 
+ }
+ */
+
+//MARK: - For XML
+
+extension ParserHelper: XMLParserDelegate {
     //MARK: XML Parser Delegate
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {

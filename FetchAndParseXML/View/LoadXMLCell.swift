@@ -15,6 +15,7 @@ class LoadXMLCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.backgroundColor = UIColor.init(white: 0.95, alpha: 1)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
