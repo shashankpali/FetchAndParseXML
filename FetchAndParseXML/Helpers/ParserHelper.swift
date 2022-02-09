@@ -7,13 +7,14 @@
 
 import Foundation
 
-class XMLParserHelper: NSObject, XMLParserDelegate {
+class ParserHelper: NSObject, XMLParserDelegate {
  
     var stations: [Station] = []
     var elementName = ""
     var name = ""
     var identifier = ""
     var logoURL = ""
+    var band = ""
     
     init(withData: Data, callback: (([Station]) -> Void)?) {
         super.init()
@@ -32,6 +33,7 @@ class XMLParserHelper: NSObject, XMLParserDelegate {
             name = ""
             identifier = ""
             logoURL = ""
+            band = ""
         }
         
         self.elementName = elementName
@@ -39,8 +41,8 @@ class XMLParserHelper: NSObject, XMLParserDelegate {
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        if (elementName == "Item" && (name.count + identifier.count + logoURL.count != 0)) {
-            let station = Station(name: name, identifier: identifier, logoURL: logoURL)
+        if (elementName == "Item" && (name.count + identifier.count + logoURL.count + band.count != 0)) {
+            let station = Station(name: name, identifier: identifier, logoURL: logoURL, band: band)
             stations.append(station)
         }
     }
@@ -55,6 +57,8 @@ class XMLParserHelper: NSObject, XMLParserDelegate {
                 name += data
             } else if self.elementName == "Logo" {
                 logoURL += data
+            } else if self.elementName == "Band" {
+                band += data
             }
         }
     }

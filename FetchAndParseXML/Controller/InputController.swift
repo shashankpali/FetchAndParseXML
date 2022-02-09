@@ -109,9 +109,9 @@ class InputController: UIViewController, UITextFieldDelegate {
         
         loader.startAnimating()
         
-        Networking.get(forURLString: searchField.text!) { success, data, errorStr in
+        Networking.get(forURLString: searchField.text!, policy: .reloadIgnoringCacheData) { success, data, errorStr in
             if success {
-                let _ =  XMLParserHelper.init(withData: data!) { array in
+                let _ =  ParserHelper.init(withData: data!) { array in
                     self.updateUI(navigateWith: array, errorString: nil)
                 }
             }else {
