@@ -23,7 +23,7 @@ extension UIImageView {
         loader.set(widthRatio: 0.8, respectToView: self)
         loader.startAnimating()
         
-        Networking.get(forURLString: urlString) { success, data, errorString in
+        Networking.get(forURLString: urlString, policy: .returnCacheDataElseLoad) { success, data, errorString in
             DispatchQueue.main.async(execute: { () -> Void in
                 loader.removeFromSuperview()
                 self.image = UIImage.init(named: "BlankImgHolder")!

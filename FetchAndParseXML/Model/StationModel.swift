@@ -11,4 +11,5 @@ struct Station {
     var name: String
     var identifier: String
     var logoURL: String
+    var band: String
 }
